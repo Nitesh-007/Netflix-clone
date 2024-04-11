@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -65,5 +66,18 @@ export class MovieService {
 
   getUpcomingMovies() {
     return this.http.get(`${this.baseURL}/movie/upcoming?api_key=${this.apikey}&with_genres=28`)
+  }
+
+
+  getMovieDetails (id: any) {
+    return this.http.get(`${this.baseURL}/movie/${id}?api_key=${this.apikey}`)
+  }
+
+  getMovieVideo (id: any) {
+    return this.http.get(`${this.baseURL}/movie/${id}/videos?api_key=${this.apikey}`)
+  }
+
+  getMovieCast (id: any){
+    return this.http.get(`${this.baseURL}/movie/${id}/credits?api_key=${this.apikey}`)
   }
 }

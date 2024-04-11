@@ -6,6 +6,7 @@ import { DescriptionPipe } from '../../pipes/description.pipe';
 import { ImagePipe } from '../../pipes/image.pipe';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { SwiperOptions } from 'swiper/types/swiper-options';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-carousel',
@@ -32,7 +33,7 @@ export class MovieCarouselComponent implements OnInit, AfterViewInit {
 
 
 
-  constructor() { 
+  constructor( private router: Router,) { 
     
   }
   ngAfterViewInit(): void {
@@ -92,11 +93,13 @@ export class MovieCarouselComponent implements OnInit, AfterViewInit {
     loop: false,
     breakpoints: breakpoints,
     simulateTouch: true,
-    grabCursor: true, // Allow cursor to grab and drag/swipe slides
+    grabCursor: true, 
       navigation: {
-        nextEl: '.swiper-button-next', // Use Swiper's built-in navigation buttons
+        nextEl: '.swiper-button-next', 
         prevEl: '.swiper-button-prev'
-      }
+      },
+
+
   };
 
   if (this.swiper) {
@@ -113,5 +116,15 @@ export class MovieCarouselComponent implements OnInit, AfterViewInit {
 
   clearHoverMovie() {
     this.selectedContent = null;
+  }
+
+
+
+
+  viewProfile(data: any) {
+    this.router.navigate([
+      "\movie-details",
+        {id: data.id},
+    ]);
   }
 }
