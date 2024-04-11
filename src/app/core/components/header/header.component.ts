@@ -13,5 +13,5 @@ export class HeaderComponent {
   @Input({required: true}) userImg: string = '';
   username = JSON.parse(sessionStorage.getItem('loggedInUser')!).name;
   auth = inject(AuthService);
-  navList = ["Home", "TV Shows", "News & Popular", "My List", "Browse by Language"]
+  
 }
