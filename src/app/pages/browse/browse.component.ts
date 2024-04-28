@@ -19,9 +19,11 @@ export class BrowseComponent implements OnInit {
 
   auth = inject(AuthService);
   movieService = inject(MovieService);
-  name = JSON.parse(sessionStorage.getItem("loggedInUser")!).name;
-  userProfileImg = JSON.parse(sessionStorage.getItem("loggedInUser")!).picture;
-  email = JSON.parse(sessionStorage.getItem("loggedInUser")!).email;
+ 
+  name:any;
+  userProfileImg:any
+  email :any
+  
   bannerDetail$ = new Observable<any>();
   bannerVideo$ = new Observable<any>();
 
@@ -44,6 +46,11 @@ export class BrowseComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+
+    this.name = JSON.parse(sessionStorage.getItem("loggedInUser")!).name;
+    this.userProfileImg = JSON.parse(sessionStorage.getItem("loggedInUser")!).picture;
+    this.email = JSON.parse(sessionStorage.getItem("loggedInUser")!).email;
+    
 
    
     forkJoin(this.sources)
