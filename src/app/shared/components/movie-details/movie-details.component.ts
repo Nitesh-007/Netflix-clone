@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { MovieService } from '../../services/movie.service';
 
@@ -21,7 +21,7 @@ export class MovieDetailsComponent {
 
 
 
-  constructor (private moviesService:MovieService, private route: ActivatedRoute, private title: Title, private meta: Meta) { }
+  constructor (private moviesService:MovieService, private route: ActivatedRoute, private title: Title, private meta: Meta ,private router: Router) { }
 
   ngOnInit (): void {
     // let getParamId = this.router.snapshot.paramMap.get('id');
@@ -71,6 +71,11 @@ export class MovieDetailsComponent {
       console.log(result, 'movieCast#');
       this.getMovieCastResult = result.cast;
     });
+  }
+
+
+  cancle(){
+    this.router.navigate(['browse']);
   }
 
 }

@@ -50,6 +50,9 @@ export class BrowseComponent implements OnInit {
     this.name = JSON.parse(sessionStorage.getItem("loggedInUser")!).name;
     this.userProfileImg = JSON.parse(sessionStorage.getItem("loggedInUser")!).picture;
     this.email = JSON.parse(sessionStorage.getItem("loggedInUser")!).email;
+
+
+    console.log(this.bannerVideo$)
     
 
    

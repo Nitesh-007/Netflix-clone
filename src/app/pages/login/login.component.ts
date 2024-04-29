@@ -11,13 +11,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  // private router = inject(Router);
+  
 
   constructor(private router: Router, private ngZone: NgZone) {}
 
   ngOnInit(): void {
     google.accounts.id.initialize({
-      client_id: '478719977918-agnojbvp4f52ijcgh5hlnf3nnlobs80j.apps.googleusercontent.com',
+      client_id: '478719977918-gpecp2nhr1s4juq9b1c6dlsfp5ujkpte.apps.googleusercontent.com',
       callback: (resp: any)=> this.handleLogin(resp)
     });
 
